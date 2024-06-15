@@ -6,10 +6,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+	</ItemGroup>
+
   <ItemGroup>
     <Folder Include="Repository\" />
     <Folder Include="Mappings\" />
-    <Folder Include="Context\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\rjff.avmb.core\rjff.avmb.core.csproj" />
   </ItemGroup>
 
 </Project>
