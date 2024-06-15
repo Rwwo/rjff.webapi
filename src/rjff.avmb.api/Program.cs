@@ -1,6 +1,6 @@
 using rjff.avmb.api.Extensions;
-using rjff.avmb.infrastructure;
 using rjff.avmb.application;
+using rjff.avmb.infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	</PropertyGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="13.0.1" />
@@ -23,14 +25,10 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\rjff.abmv.application\rjff.avmb.application.csproj" />
-    <ProjectReference Include="..\rjff.avmb.core\rjff.avmb.core.csproj" />
-    <ProjectReference Include="..\rjff.avmb.infrastructure\rjff.avmb.infrastructure.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\rjff.abmv.application\rjff.avmb.application.csproj" />
+		<ProjectReference Include="..\rjff.avmb.core\rjff.avmb.core.csproj" />
+		<ProjectReference Include="..\rjff.avmb.infrastructure\rjff.avmb.infrastructure.csproj" />
+	</ItemGroup>
 
 </Project>

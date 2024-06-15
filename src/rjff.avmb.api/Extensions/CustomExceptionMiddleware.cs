@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net;
+
+using Newtonsoft.Json;
 
 using Serilog;
-
-using System.Net;
 
 namespace rjff.avmb.api.Extensions
 {
