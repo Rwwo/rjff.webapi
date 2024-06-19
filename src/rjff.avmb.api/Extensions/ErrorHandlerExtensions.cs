@@ -2,7 +2,7 @@
 {
     public static class ErrorHandlerExtensions
     {
-        public static void ConfigureCustomExceptionHandler(this IApplicationBuilder app)
+        public static void ConfiguracaoExcecaoCustomizadaHandler(this IApplicationBuilder app)
         {
             app.UseMiddleware<CustomExceptionMiddleware>();
         }

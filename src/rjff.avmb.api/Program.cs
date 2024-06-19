@@ -25,7 +25,7 @@ else
 }
 
 
-app.ConfigureCustomExceptionHandler();
+app.ConfiguracaoExcecaoCustomizadaHandler();
 
 app.UseHttpsRedirection();
 

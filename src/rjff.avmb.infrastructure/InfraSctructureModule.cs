@@ -8,8 +8,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
+using rjff.avmb.core.Interfaces;
+using rjff.avmb.core.Notifications;
 using rjff.avmb.core.Models;
 using rjff.avmb.infrastructure.Context;
+using rjff.avmb.infrastructure.Services;
+using System.Runtime;
 
 namespace rjff.avmb.infrastructure
 {
@@ -19,9 +23,10 @@ namespace rjff.avmb.infrastructure
         {
             services.AddDbContextConfig(configuration)
                 .AddCorsConfig()
-                .AddIdentityConfig(configuration);
+                .AddIdentityConfig(configuration)
+                .AddAstenServiceConfig(configuration);
 
-            //services.AddScoped<INotificador, Notificador>();
+            services.AddScoped<INotificador, Notificador>();
 
             return services;
         }
@@ -90,6 +95,15 @@ namespace rjff.avmb.infrastructure
                     ValidIssuer = jwtSettings.Emissor
                 };
             });
+
+            return services;
+        }
+
+        public static IServiceCollection AddAstenServiceConfig(this IServiceCollection services, IConfiguration configuration)
+        {
+
+            services.Configure<AstenServiceCredencials>(configuration.GetSection("AstenServiceCredencials"));
+            services.AddTransient<IAstenService, AstenService>();
 
             return services;
         }

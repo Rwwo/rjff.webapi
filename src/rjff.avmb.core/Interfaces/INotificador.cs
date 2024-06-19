@@ -1,4 +1,4 @@
-﻿using rjff.avmb.core.Notications;
+﻿using rjff.avmb.core.Notifications;
 
 namespace rjff.avmb.core.Interfaces
 {

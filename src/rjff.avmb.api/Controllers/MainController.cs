@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 using rjff.avmb.core.Interfaces;
-using rjff.avmb.core.Notications;
+using rjff.avmb.core.Notifications;
 
 namespace rjff.avmb.api.Controllers
 {
