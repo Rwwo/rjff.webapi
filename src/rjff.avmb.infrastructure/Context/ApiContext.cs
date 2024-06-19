@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
+using rjff.avmb.core.Models;
+
 namespace rjff.avmb.infrastructure.Context
 {
     public class ApiContext : IdentityDbContext
@@ -11,6 +13,8 @@ namespace rjff.avmb.infrastructure.Context
         {
 
         }
+
+        public DbSet<CriarEnvelope> CriarEnvelope { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

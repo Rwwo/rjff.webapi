@@ -22,7 +22,7 @@ namespace rjff.avmb.api.Controllers
 
         [HttpPost("novo-envelope")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<ActionResult<EnvelopeInputModel>> Adicionar(EnvelopeInputModel EnvelopeInputModel)
+        public async Task<ActionResult<CriarEnvelopeInputModel>> Adicionar(CriarEnvelopeInputModel EnvelopeInputModel)
         {
             if (!ModelState.IsValid)
                 return CustomResponse(ModelState);

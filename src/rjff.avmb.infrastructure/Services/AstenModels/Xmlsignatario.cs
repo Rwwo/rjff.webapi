@@ -2,13 +2,13 @@
 {
     public class Xmlsignatario
     {
-        public object emailSignatario { get; set; }
-        public object idNodeAssinatura { get; set; }
-        public object restringirTiposCertificados { get; set; }
-        public object restringirPessoaFisica { get; set; }
-        public object restringirPessoaJuridica { get; set; }
-        public object cpfCnpjAceito { get; set; }
-        public object carimboInterno { get; set; }
+        public string? emailSignatario { get; set; }
+        public string? idNodeAssinatura { get; set; }
+        public string? restringirTiposCertificados { get; set; }
+        public string? restringirPessoaFisica { get; set; }
+        public string? restringirPessoaJuridica { get; set; }
+        public string? cpfCnpjAceito { get; set; }
+        public string? carimboInterno { get; set; }
     }
 
 }

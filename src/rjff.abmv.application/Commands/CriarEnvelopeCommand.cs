@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using MediatR;
+﻿using MediatR;
 
 using rjff.avmb.core.InputModels;
 
 namespace rjff.avmb.application.Commands
 {
 
-    public class CriarEnvelopeCommand : IRequest<EnvelopeInputModel>
+    public class CriarEnvelopeCommand : IRequest<CriarEnvelopeInputModel>
     {
-        public CriarEnvelopeCommand(EnvelopeInputModel envelope)
+        public CriarEnvelopeCommand(CriarEnvelopeInputModel envelope)
         {
             Envelope = envelope;
         }
 
-        public EnvelopeInputModel Envelope { get; private set; }
+        public CriarEnvelopeInputModel Envelope { get; private set; }
     }
 
 }

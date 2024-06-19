@@ -9,11 +9,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
 using rjff.avmb.core.Interfaces;
-using rjff.avmb.core.Notifications;
 using rjff.avmb.core.Models;
+using rjff.avmb.core.Notifications;
 using rjff.avmb.infrastructure.Context;
+using rjff.avmb.infrastructure.Repository;
 using rjff.avmb.infrastructure.Services;
-using System.Runtime;
 
 namespace rjff.avmb.infrastructure
 {
@@ -33,7 +33,7 @@ namespace rjff.avmb.infrastructure
 
         public static IServiceCollection AddDbContextConfig(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

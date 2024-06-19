@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+
+using Microsoft.EntityFrameworkCore;
 
 using rjff.avmb.core.Interfaces;
 using rjff.avmb.core.Models;

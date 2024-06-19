@@ -14,10 +14,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Mappings\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\rjff.avmb.core\rjff.avmb.core.csproj" />
   </ItemGroup>
 

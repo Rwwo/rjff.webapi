@@ -2,7 +2,8 @@
 {
     public interface IUnitOfWork : IDisposable
     {
-        IEnvelopeRepository EnvelopeRepository { get; }
+        //IEnvelopeRepository EnvelopeRepository { get; }
+        ICriarEnvelopeRepository CriarEnvelopeRepository { get; }
 
         Task Commit();
     }

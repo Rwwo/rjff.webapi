@@ -25,7 +25,7 @@ namespace rjff.avmb.infrastructure.Services
             _urlBase = _credentials.IsDevelopment ? Constantes.URL_BASE_HOMOLOGACAO : Constantes.URL_BASE_PRODUCAO;
         }
 
-        
+
 
         private async Task<GenericResult<ApiResponse<T>>> ExecuteRequestAsync<T>(string endpoint, Method method, object body = null)
         {

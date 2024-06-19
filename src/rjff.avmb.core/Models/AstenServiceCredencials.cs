@@ -4,7 +4,7 @@
     {
         public string Token { get; set; }
 
-        public bool IsDevelopment { get; set; } 
+        public bool IsDevelopment { get; set; }
     }
 
 }

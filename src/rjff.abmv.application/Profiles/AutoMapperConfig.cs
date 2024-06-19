@@ -9,7 +9,7 @@ namespace rjff.avmb.application.Profiles
     {
         public AutoMapperConfig()
         {
-            CreateMap<Envelope, EnvelopeInputModel>().ReverseMap();
+            CreateMap<CriarEnvelope, CriarEnvelopeInputModel>().ReverseMap();
         }
     }
 }

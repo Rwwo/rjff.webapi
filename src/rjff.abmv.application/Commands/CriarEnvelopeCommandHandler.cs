@@ -10,7 +10,7 @@ using rjff.avmb.core.Services;
 
 namespace rjff.avmb.application.Commands
 {
-    public class CriarEnvelopeCommandHandler : BaseService, IRequestHandler<CriarEnvelopeCommand, EnvelopeInputModel>
+    public class CriarEnvelopeCommandHandler : BaseService, IRequestHandler<CriarEnvelopeCommand, CriarEnvelopeInputModel>
     {
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
@@ -20,14 +20,14 @@ namespace rjff.avmb.application.Commands
             _uow = uow;
             _mapper = mapper;
         }
-        public async Task<EnvelopeInputModel> Handle(CriarEnvelopeCommand request, CancellationToken cancellationToken)
+        public async Task<CriarEnvelopeInputModel> Handle(CriarEnvelopeCommand request, CancellationToken cancellationToken)
         {
-            var envelopeMap = _mapper.Map<Envelope>(request.Envelope);
+            var criarEnvelopeMap = _mapper.Map<CriarEnvelope>(request.Envelope);
 
-            if (!ExecutarValidacao(new EnvelopeValidation(), envelopeMap))
+            if (!ExecutarValidacao(new CriarEnvelopeValidation(), criarEnvelopeMap))
                 return request.Envelope;
 
-            await _uow.EnvelopeRepository.Adicionar(envelopeMap);
+            await _uow.CriarEnvelopeRepository.Adicionar(criarEnvelopeMap);
 
             return request.Envelope;
 
