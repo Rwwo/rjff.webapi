@@ -1,4 +1,6 @@
-﻿namespace rjff.avmb.core.InputModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.core.InputModels
 {
     public class DocumentoInputModel
     {
@@ -10,8 +12,13 @@
             this.listaXMLAuxiliar = listaXMLAuxiliar;
         }
 
+        [DefaultValue(null)]
         public string nomeArquivo { get; set; }
+        
+        [DefaultValue(null)]
         public string mimeType { get; set; }
+        
+        [DefaultValue(null)]
         public string conteudo { get; set; }
         public ListaxmlauxiliarInputModel listaXMLAuxiliar { get; set; }
     }

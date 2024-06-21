@@ -1,4 +1,6 @@
-﻿namespace rjff.avmb.core.InputModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.core.InputModels
 {
     public class XmlsignatarioInputModel
     {
@@ -19,13 +21,21 @@
             this.carimboInterno = carimboInterno;
         }
 
+        [DefaultValue(null)]
         public string? emailSignatario { get; private set; }
+        [DefaultValue(null)]
         public string? idNodeAssinatura { get; private set; }
+        [DefaultValue(null)]
         public string? restringirTiposCertificados { get; private set; }
+        [DefaultValue(null)]
         public string? restringirPessoaFisica { get; private set; }
+        [DefaultValue(null)]
         public string? restringirPessoaJuridica { get; private set; }
+        [DefaultValue(null)]
         public string? cpfCnpjAceito { get; private set; }
+        [DefaultValue(null)]
         public string? carimboInterno { get; private set; }
+
     }
 
 

@@ -1,46 +1,20 @@
-﻿namespace rjff.avmb.core.InputModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.core.InputModels
 {
     public class EnvelopeInputModel
     {
-        public EnvelopeInputModel(
-                string descricao,
-                RepositorioInputModel repositorio,
-                string mensagem,
-                string mensagemObservadores,
-                string mensagemNotificacaoSMS,
-                string dataExpiracao,
-                string horaExpiracao,
-                string usarOrdem,
-                ConfigAuxiliarInputModel configAuxiliar,
-                ListadocumentosInputModel listaDocumentos,
-                ListasignatariosenvelopeInputModel listaSignatariosEnvelope,
-                ListaobservadoresInputModel listaObservadores,
-                ListatagsInputModel listaTags,
-                ListainfoadicionalInputModel listaInfoAdicional,
-                string incluirHashTodasPaginas,
-                string permitirDespachos,
-                string ignorarNotificacoes,
-                string ignorarNotificacoesPendentes,
-                string qrCodePosLeft,
-                string qrCodePosTop,
-                string dataIniContrato,
-                string dataFimContrato,
-                string objetoContrato,
-                string numContrato,
-                string valorContrato,
-                string descricaoContratante,
-                string descricaoContratado,
-                string bloquearDesenhoPaginas)
+        public EnvelopeInputModel(string descricao, RepositorioInputModel Repositorio, string? mensagem, string? mensagemObservadores, string? mensagemNotificacaoSMS, string? dataExpiracao, string? horaExpiracao, string usarOrdem, ConfigAuxiliarInputModel ConfigAuxiliar, ListadocumentosInputModel listaDocumentos, ListasignatariosenvelopeInputModel listaSignatariosEnvelope, ListaobservadoresInputModel listaObservadores, ListatagsInputModel listaTags, ListainfoadicionalInputModel listaInfoAdicional, string incluirHashTodasPaginas, string permitirDespachos, string ignorarNotificacoes, string ignorarNotificacoesPendentes, object qrCodePosLeft, object qrCodePosTop, object dataIniContrato, object dataFimContrato, object objetoContrato, object numContrato, object valorContrato, object descricaoContratante, object descricaoContratado, string bloquearDesenhoPaginas)
         {
             this.descricao = descricao;
-            this.Repositorio = repositorio;
+            this.Repositorio = Repositorio;
             this.mensagem = mensagem;
             this.mensagemObservadores = mensagemObservadores;
             this.mensagemNotificacaoSMS = mensagemNotificacaoSMS;
             this.dataExpiracao = dataExpiracao;
             this.horaExpiracao = horaExpiracao;
             this.usarOrdem = usarOrdem;
-            this.ConfigAuxiliar = configAuxiliar;
+            this.ConfigAuxiliar = ConfigAuxiliar;
             this.listaDocumentos = listaDocumentos;
             this.listaSignatariosEnvelope = listaSignatariosEnvelope;
             this.listaObservadores = listaObservadores;
@@ -64,11 +38,19 @@
 
         public string descricao { get; set; }
         public RepositorioInputModel Repositorio { get; set; }
+
+        [DefaultValue(null)]
         public string? mensagem { get; set; }
+        [DefaultValue(null)]
         public string? mensagemObservadores { get; set; }
+        [DefaultValue(null)]
         public string? mensagemNotificacaoSMS { get; set; }
+        [DefaultValue(null)]
         public string? dataExpiracao { get; set; }
+        [DefaultValue(null)]
         public string? horaExpiracao { get; set; }
+
+        [DefaultValue("S")]
         public string usarOrdem { get; set; }
         public ConfigAuxiliarInputModel ConfigAuxiliar { get; set; }
         public ListadocumentosInputModel listaDocumentos { get; set; }
@@ -76,19 +58,38 @@
         public ListaobservadoresInputModel listaObservadores { get; set; }
         public ListatagsInputModel listaTags { get; set; }
         public ListainfoadicionalInputModel listaInfoAdicional { get; set; }
-        public string incluirHashTodasPaginas { get; set; } = "S";
-        public string permitirDespachos { get; set; } = "S";
-        public string ignorarNotificacoes { get; set; } = "N";
-        public string ignorarNotificacoesPendentes { get; set; } = "N";
+
+        [DefaultValue("S")]
+        public string incluirHashTodasPaginas { get; set; }
+
+        [DefaultValue("S")]
+        public string permitirDespachos { get; set; }
+
+        [DefaultValue("N")]
+        public string ignorarNotificacoes { get; set; }
+
+        [DefaultValue("N")]
+        public string ignorarNotificacoesPendentes { get; set; }
+
+        [DefaultValue(null)]
         public object qrCodePosLeft { get; set; }
+        [DefaultValue(null)]
         public object qrCodePosTop { get; set; }
+        [DefaultValue(null)]
         public object dataIniContrato { get; set; }
+        [DefaultValue(null)]
         public object dataFimContrato { get; set; }
+        [DefaultValue(null)]
         public object objetoContrato { get; set; }
+        [DefaultValue(null)]
         public object numContrato { get; set; }
+        [DefaultValue(null)]
         public object valorContrato { get; set; }
+        [DefaultValue(null)]
         public object descricaoContratante { get; set; }
+        [DefaultValue(null)]
         public object descricaoContratado { get; set; }
-        public string bloquearDesenhoPaginas { get; set; } = "S";
+        [DefaultValue("S")]
+        public string bloquearDesenhoPaginas { get; set; }
     }
 }

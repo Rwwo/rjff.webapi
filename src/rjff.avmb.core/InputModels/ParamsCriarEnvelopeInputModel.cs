@@ -1,13 +1,15 @@
-﻿namespace rjff.avmb.core.InputModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.core.InputModels
 {
     public class ParamsCriarEnvelopeInputModel
     {
         public ParamsCriarEnvelopeInputModel(EnvelopeInputModel envelope,
-                                                        string gerarTags = "N",
-                                                        string encaminharImediatamente = "N",
-                                                        string detectarCampos = "N",
-                                                        string verificarDuplicidadeConteudo = "N",
-                                                        string processarImagensEmSegundoPlano = "N")
+                                                        string gerarTags,
+                                                        string encaminharImediatamente,
+                                                        string detectarCampos,
+                                                        string verificarDuplicidadeConteudo,
+                                                        string processarImagensEmSegundoPlano)
         {
             Envelope = envelope;
             this.gerarTags = gerarTags;
@@ -18,10 +20,20 @@
         }
 
         public EnvelopeInputModel Envelope { get; private set; }
+
+        [DefaultValue("N")]
         public string gerarTags { get; private set; }
+
+        [DefaultValue("N")]
         public string encaminharImediatamente { get; private set; }
+
+        [DefaultValue("N")]
         public string detectarCampos { get; private set; }
+
+        [DefaultValue("N")]
         public string verificarDuplicidadeConteudo { get; private set; }
+
+        [DefaultValue("N")]
         public string processarImagensEmSegundoPlano { get; private set; }
     }
 }

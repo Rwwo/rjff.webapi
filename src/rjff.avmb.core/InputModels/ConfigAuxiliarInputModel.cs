@@ -1,4 +1,6 @@
-﻿namespace rjff.avmb.core.InputModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.core.InputModels
 {
     public class ConfigAuxiliarInputModel
     {
@@ -8,7 +10,9 @@
             this.urlCarimboTempo = urlCarimboTempo;
         }
 
+        [DefaultValue("N")]
         public string documentosComXMLs { get; set; }
+        [DefaultValue(null)]
         public string urlCarimboTempo { get; set; }
 
     }

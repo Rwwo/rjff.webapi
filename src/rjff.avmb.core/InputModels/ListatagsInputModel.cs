@@ -1,7 +1,10 @@
-﻿namespace rjff.avmb.core.InputModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.core.InputModels
 {
     public class ListatagsInputModel
     {
-        public List<object> Tag { get; set; } = new List<object>();
+        [DefaultValue(typeof(List<object>), "[]")]
+        public List<object> Tag { get; set; } = Enumerable.Empty<object>().ToList();
     }
 }

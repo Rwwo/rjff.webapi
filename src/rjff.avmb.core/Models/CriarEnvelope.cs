@@ -4,7 +4,8 @@ namespace rjff.avmb.core.Models
 {
     public class CriarEnvelope : Entity
     {
-        public string Token { get; set; }
-        public CriarEnvelopeInputModel Params { get; set; }
+        public string token { get; set; }
+        public ParamsCriarEnvelopeInputModel @params { get; set; }
+        
     }
 }

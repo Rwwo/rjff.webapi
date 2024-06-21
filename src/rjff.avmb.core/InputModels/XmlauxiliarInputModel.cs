@@ -1,4 +1,6 @@
-﻿namespace rjff.avmb.core.InputModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.core.InputModels
 {
     public class XmlauxiliarInputModel
     {
@@ -9,7 +11,10 @@
             this.listaXMLSignatario = listaXMLSignatario;
         }
 
+        [DefaultValue(null)]
         public string? nomeArquivo { get; private set; }
+        
+        [DefaultValue(null)]
         public string? conteudoXML { get; private set; }
         public List<ListaxmlsignatarioInputModel> listaXMLSignatario { get; private set; }
     }

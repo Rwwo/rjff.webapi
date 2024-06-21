@@ -1,7 +1,10 @@
-﻿namespace rjff.avmb.core.InputModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.core.InputModels
 {
     public class ListasignatariosenvelopeInputModel
     {
-        public List<SignatarioenvelopeInputModel> SignatarioEnvelope { get; set; } = new List<SignatarioenvelopeInputModel>();
+        [DefaultValue(typeof(List<object>), "[]")]
+        public List<object> SignatarioEnvelope { get; set; } = Enumerable.Empty<object>().ToList();
     }
 }

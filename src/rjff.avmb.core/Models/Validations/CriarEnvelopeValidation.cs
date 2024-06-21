@@ -6,7 +6,7 @@ namespace rjff.avmb.core.Models.Validations
     {
         public CriarEnvelopeValidation()
         {
-            RuleFor(c => c.Token)
+            RuleFor(c => c.token)
                 .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido")
                 ;
 

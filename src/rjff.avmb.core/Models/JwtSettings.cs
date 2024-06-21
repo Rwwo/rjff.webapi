@@ -12,10 +12,4 @@ namespace rjff.avmb.core.Models
     }
 
 
-    public class Rootobject
-    {
-        public string token { get; set; }
-        public Params @params { get; set; }
-    }
-
 }

@@ -2,7 +2,7 @@
 {
     public class Constantes
     {
-        public const string URL_BASE_HOMOLOGACAO = "https://plataforma.astenassinatura.com.br/api/ ";
+        public const string URL_BASE_HOMOLOGACAO = "https://plataforma.astenassinatura.com.br/api/";
         public const string URL_BASE_PRODUCAO = "";
 
         public const string URL_CRIAR_ENVELOPE = "inserirenvelope";
