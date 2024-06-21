@@ -2,8 +2,8 @@
 {
     public class Xmlauxiliar
     {
-        public object nomeArquivo { get; set; }
-        public object conteudoXML { get; set; }
+        public string? nomeArquivo { get; set; }
+        public string? conteudoXML { get; set; }
         public Listaxmlsignatario listaXMLSignatario { get; set; }
     }
 

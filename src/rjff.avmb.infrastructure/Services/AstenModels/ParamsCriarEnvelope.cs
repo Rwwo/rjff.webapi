@@ -2,7 +2,7 @@
 
 namespace rjff.avmb.infrastructure.Services.AstenModels
 {
-    public class ParamsCriarEnvelope : Params
+    public class ParamsCriarEnvelope 
     {
         public Envelope Envelope { get; set; }
         public string gerarTags { get; set; }

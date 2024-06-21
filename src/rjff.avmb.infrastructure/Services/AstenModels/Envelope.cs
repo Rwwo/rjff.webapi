@@ -9,11 +9,11 @@
     {
         public string descricao { get; set; }
         public Repositorio Repositorio { get; set; }
-        public object mensagem { get; set; }
-        public object mensagemObservadores { get; set; }
-        public object mensagemNotificacaoSMS { get; set; }
-        public object dataExpiracao { get; set; }
-        public object horaExpiracao { get; set; }
+        public string? mensagem { get; set; }
+        public string? mensagemObservadores { get; set; }
+        public string? mensagemNotificacaoSMS { get; set; }
+        public string? dataExpiracao { get; set; }
+        public string? horaExpiracao { get; set; }
         public string usarOrdem { get; set; }
         public Configauxiliar ConfigAuxiliar { get; set; }
         public Listadocumentos listaDocumentos { get; set; }
@@ -34,7 +34,7 @@
         public object valorContrato { get; set; }
         public object descricaoContratante { get; set; }
         public object descricaoContratado { get; set; }
-        public string bloquearDesenhoPaginas { get; set; }
+        public object bloquearDesenhoPaginas { get; set; }
     }
 
 }

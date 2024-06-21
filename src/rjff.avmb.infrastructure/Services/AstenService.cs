@@ -1,12 +1,15 @@
-﻿using System.Text.Json;
+﻿using Flurl.Http;
+
+using MediatR.NotificationPublishers;
 
 using Microsoft.Extensions.Options;
 
-using RestSharp;
+using Newtonsoft.Json;
 
 using rjff.avmb.core.Models;
 using rjff.avmb.core.Utils;
 using rjff.avmb.infrastructure.Services.AstenModels;
+
 
 namespace rjff.avmb.infrastructure.Services
 {
@@ -25,56 +28,95 @@ namespace rjff.avmb.infrastructure.Services
             _urlBase = _credentials.IsDevelopment ? Constantes.URL_BASE_HOMOLOGACAO : Constantes.URL_BASE_PRODUCAO;
         }
 
-
-
-        private async Task<GenericResult<ApiResponse<T>>> ExecuteRequestAsync<T>(string endpoint, Method method, object body = null)
+        public string GetToken()
         {
+            return _token;
+        }
+
+
+        private async Task<GenericResult<T>> ExecuteRequestAsync<T>(string endpoint, HttpMethod method, object body = null)
+        {
+
+            var url = _urlBase + endpoint;
             try
             {
-                var url = _urlBase + endpoint;
+                var request = url
+                    //.WithOAuthBearerToken(_token)
+                    .WithHeader("accept", "application/json")
+                    .WithHeader("Content-Type", "application/json");
 
-                var options = new RestClientOptions(url);
-                var client = new RestClient(options);
-                var request = new RestRequest(url, method);
-                request.AddHeader("accept", "application/json");
-                request.AddHeader("Authorization", $"Bearer {_token}");
+                IFlurlResponse response;
 
-                if (body != null)
+                // Condicional para o método HTTP
+                if (method == HttpMethod.Post)
+                    response = await request.PostJsonAsync(body);
+                else if (method == HttpMethod.Put)
+                    response = await request.PutJsonAsync(body);
+                else if (method == HttpMethod.Delete)
+                    response = await request.DeleteAsync();
+                else
+                    response = await request.GetAsync();
+
+                // Captura o conteúdo da resposta
+                var responseContent = await response.GetStringAsync();
+                return JsonConvert.DeserializeObject<GenericResult<T>>(responseContent);
+            }
+            catch (JsonException ex)
+            {
+                return new GenericResult<T>
                 {
-                    request.AddJsonBody(JsonSerializer.Serialize(body));
-                }
+                    HttpCode = 500, // Código de erro genérico
+                    Result = default,
+                    Errors = new List<Error>
+                    {
+                        new Error()
+                        {
+                            error = ex.Message
+                        }
+                    }
+                };
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errorDetails = await ex.GetResponseStringAsync();
+                GenericResult<T> retorno;
 
-                RestResponse response = method switch
+                var error = JsonConvert.DeserializeObject<Error>(errorDetails);
+
+                // Caso haja um erro na deserialização da resposta de erro
+                retorno = new GenericResult<T>
                 {
-                    Method.Post => await client.PostAsync(request),
-                    Method.Put => await client.PutAsync(request),
-                    Method.Delete => await client.DeleteAsync(request),
-                    _ => await client.GetAsync(request),
+                    HttpCode = (int)ex.StatusCode,
+                    Result = default,
+                    Errors = new List<Error>
+                    {
+                        error
+                    }
                 };
 
-                if (response.IsSuccessful)
-                {
-                    return JsonSerializer.Deserialize<GenericResult<ApiResponse<T>>>(response.Content);
-                }
-                else
-                {
-                    return new GenericResult<ApiResponse<T>>
-                    {
-                    };
-                }
+
+                return retorno;
             }
             catch (Exception ex)
             {
-                return new GenericResult<ApiResponse<T>>
+                return new GenericResult<T>
                 {
-
+                    HttpCode = 500, // Código de erro genérico
+                    Result = default,
+                    Errors = new List<Error>
+                    {
+                        new Error()
+                        {
+                            error = ex.Message
+                        }
+                    }
                 };
             }
         }
 
-        public Task<GenericResult<ApiResponse<EnvelopeData>>> CriarNovoEnvelope(AstenModels.Envelope envelope)
+        public async Task<GenericResult<EnvelopeData>> CriarNovoEnvelope(AstenModels.CriarEnvelope envelope)
         {
-            return ExecuteRequestAsync<EnvelopeData>(Constantes.URL_CRIAR_ENVELOPE, Method.Post, envelope);
+            return await ExecuteRequestAsync<EnvelopeData>(Constantes.URL_CRIAR_ENVELOPE, HttpMethod.Post, envelope);
         }
     }
 }

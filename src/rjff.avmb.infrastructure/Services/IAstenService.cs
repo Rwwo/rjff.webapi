@@ -5,6 +5,7 @@ namespace rjff.avmb.infrastructure.Services
 {
     public interface IAstenService
     {
-        Task<GenericResult<ApiResponse<EnvelopeData>>> CriarNovoEnvelope(AstenModels.Envelope envelope);
+        string GetToken();
+        Task<GenericResult<EnvelopeData>> CriarNovoEnvelope(AstenModels.CriarEnvelope envelope);
     }
 }
