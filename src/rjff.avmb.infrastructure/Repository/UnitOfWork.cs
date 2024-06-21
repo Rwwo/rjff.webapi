@@ -10,11 +10,6 @@ public class UnitOfWork : IUnitOfWork
         _dbContext = dbContext;
     }
 
-    //private IEnvelopeRepository _EnvelopeRepository = null;
-    //public IEnvelopeRepository EnvelopeRepository
-    //{
-    //    get => _EnvelopeRepository ?? (_EnvelopeRepository = new EnvelopeRepository(_dbContext));
-    //}
 
     private ICriarEnvelopeRepository _CriarEnvelopeRepository = null;
     public ICriarEnvelopeRepository CriarEnvelopeRepository

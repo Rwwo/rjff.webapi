@@ -22,7 +22,7 @@ namespace rjff.avmb.infrastructure.Mappings
 
 
             builder
-                .Property(r => r.Params)
+                .Property(r => r.@params)
                 .HasConversion(new JsonValueConverter<CriarEnvelopeInputModel>());
 
             builder.ToTable("criarenvelope");
