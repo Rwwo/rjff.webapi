@@ -1,4 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using System.Text.Json;
+
+using Microsoft.OpenApi.Models;
 
 namespace rjff.avmb.api.Extensions
 {
@@ -6,7 +8,13 @@ namespace rjff.avmb.api.Extensions
     {
         public static WebApplicationBuilder AddSwaggerConfig(this WebApplicationBuilder builder)
         {
-            builder.Services.AddControllers();
+
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.IncludeFields = true;
+                });
+
             builder.Services.AddEndpointsApiExplorer();
 
             builder.Services.AddSwaggerGen(c =>

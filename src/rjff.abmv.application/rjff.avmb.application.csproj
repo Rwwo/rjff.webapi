@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\rjff.avmb.core\rjff.avmb.core.csproj" />
+    <ProjectReference Include="..\rjff.avmb.infrastructure\rjff.avmb.infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
