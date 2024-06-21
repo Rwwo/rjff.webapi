@@ -4,9 +4,11 @@ using MediatR;
 
 using rjff.avmb.core.InputModels;
 using rjff.avmb.core.Interfaces;
-using rjff.avmb.core.Models;
 using rjff.avmb.core.Models.Validations;
 using rjff.avmb.core.Services;
+using rjff.avmb.infrastructure.Services;
+using rjff.avmb.infrastructure.Services.AstenModels;
+
 
 namespace rjff.avmb.application.Commands
 {
@@ -14,22 +16,64 @@ namespace rjff.avmb.application.Commands
     {
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
-        public CriarEnvelopeCommandHandler(IUnitOfWork uow, IMapper mapper, INotificador notificador)
+        private readonly IAstenService _astenService;
+        public CriarEnvelopeCommandHandler(IUnitOfWork uow,
+                                            IMapper mapper,
+                                            IAstenService astenService,
+                                            INotificador notificador)
             : base(notificador)
         {
             _uow = uow;
             _mapper = mapper;
+            _astenService = astenService;
         }
+
+
         public async Task<CriarEnvelopeInputModel> Handle(CriarEnvelopeCommand request, CancellationToken cancellationToken)
         {
-            var criarEnvelopeMap = _mapper.Map<CriarEnvelope>(request.Envelope);
+            try
+            {
 
-            if (!ExecutarValidacao(new CriarEnvelopeValidation(), criarEnvelopeMap))
-                return request.Envelope;
+                var criarEnvelopeMap = _mapper.Map<core.Models.CriarEnvelope>(request.CriarEnvelopeInputModel);
 
-            await _uow.CriarEnvelopeRepository.Adicionar(criarEnvelopeMap);
+                if (!ExecutarValidacao(new CriarEnvelopeValidation(), criarEnvelopeMap))
+                    return request.CriarEnvelopeInputModel;
 
-            return request.Envelope;
+                var criarEnvelopeAsten = new CriarEnvelopeBuilder();
+                criarEnvelopeAsten.ComToken(_astenService.GetToken());
+
+                var env = new EnvelopeBuilder();
+                env.ComDescricao(criarEnvelopeMap.@params.Envelope.descricao);
+                env.ComRepositorio(criarEnvelopeMap.@params.Envelope.Repositorio);
+                env.ComMensagem(criarEnvelopeMap.@params.Envelope.mensagem);
+                env.ComListaDocumentos(criarEnvelopeMap.@params.Envelope.listaDocumentos);
+                env.ComListaSignatarios(criarEnvelopeMap.@params.Envelope.listaSignatariosEnvelope);
+                env.ComListaObservadores(criarEnvelopeMap.@params.Envelope.listaObservadores);
+                env.ComListaTags(criarEnvelopeMap.@params.Envelope.listaTags);
+                env.ComListaInfoAdicional(criarEnvelopeMap.@params.Envelope.listaInfoAdicional);
+
+                criarEnvelopeAsten.ComEnvelope(env.Build());
+
+                criarEnvelopeAsten.ComGerarTags(criarEnvelopeMap.@params.gerarTags);
+                criarEnvelopeAsten.ComEncaminharImediatamente(criarEnvelopeMap.@params.encaminharImediatamente);
+                criarEnvelopeAsten.ComDetectarCampos(criarEnvelopeMap.@params.detectarCampos);
+                criarEnvelopeAsten.ComVerificarDuplicidadeConteudo(criarEnvelopeMap.@params.verificarDuplicidadeConteudo);
+                criarEnvelopeAsten.ComProcessarImagensEmSegundoPlano(criarEnvelopeMap.@params.processarImagensEmSegundoPlano);
+
+                var envFinal = criarEnvelopeAsten.Build();
+
+                await _astenService.CriarNovoEnvelope(envFinal);
+
+                await _uow.CriarEnvelopeRepository.Adicionar(criarEnvelopeMap);
+
+
+            }
+            catch (AutoMapperMappingException ex)
+            {
+                Console.WriteLine();
+            }
+
+            return request.CriarEnvelopeInputModel;
 
         }
     }

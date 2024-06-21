@@ -7,12 +7,12 @@ namespace rjff.avmb.application.Commands
 
     public class CriarEnvelopeCommand : IRequest<CriarEnvelopeInputModel>
     {
-        public CriarEnvelopeCommand(CriarEnvelopeInputModel envelope)
+        public CriarEnvelopeCommand(CriarEnvelopeInputModel criarEnvelopeInputModel)
         {
-            Envelope = envelope;
+            CriarEnvelopeInputModel = criarEnvelopeInputModel;
         }
 
-        public CriarEnvelopeInputModel Envelope { get; private set; }
+        public CriarEnvelopeInputModel CriarEnvelopeInputModel { get; private set; }
     }
 
 }
