@@ -5,8 +5,10 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 using rjff.avmb.application.Commands;
+using rjff.avmb.application.Queries;
 using rjff.avmb.core.InputModels;
 using rjff.avmb.core.Interfaces;
+using rjff.avmb.core.ViewModel;
 
 namespace rjff.avmb.api.Controllers
 {
@@ -31,6 +33,21 @@ namespace rjff.avmb.api.Controllers
             var result = await _mediator.Send(criarCorretorCommand);
 
             return CustomResponse(HttpStatusCode.Created, EnvelopeInputModel);
+        }
+
+        [HttpGet("status-envelope/{idEnvelope:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<StatusEnvelopeViewModel>> BuscarStatus(int idEnvelope)
+        {
+            var StatusEnvelopeInputModel = new StatusEnvelopeInputModel("", new ParamsStatusEnvelopeInputModel(idEnvelope, "N"));
+
+            if (!ModelState.IsValid)
+                return CustomResponse(ModelState);
+
+            var statusEnvelopeInputModel = new StatusEnvelopeQuery(StatusEnvelopeInputModel);
+            var result = await _mediator.Send(statusEnvelopeInputModel);
+
+            return CustomResponse(HttpStatusCode.OK, result);
         }
     }
 }
