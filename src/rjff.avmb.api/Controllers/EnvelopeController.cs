@@ -2,6 +2,7 @@
 
 using MediatR;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using rjff.avmb.application.Commands;
@@ -14,6 +15,7 @@ namespace rjff.avmb.api.Controllers
 {
 
     [Route("api/envelope")]
+    //[Authorize]
     public class EnvelopeController : MainController
     {
         private readonly IMediator _mediator;

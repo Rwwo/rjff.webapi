@@ -2,6 +2,7 @@
 
 using MediatR;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using rjff.avmb.application.Commands;
@@ -13,6 +14,7 @@ using rjff.avmb.infrastructure.Services.AstenModels;
 namespace rjff.avmb.api.Controllers
 {
     [Route("api/signatario")]
+    //[Authorize]
     public class SignatarioController : MainController
     {
         private readonly IMediator _mediator;
