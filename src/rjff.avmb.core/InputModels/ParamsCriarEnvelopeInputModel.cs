@@ -36,17 +36,4 @@ namespace rjff.avmb.core.InputModels
         [DefaultValue("N")]
         public string processarImagensEmSegundoPlano { get; private set; }
     }
-
-    public class ParamsStatusEnvelopeInputModel
-    {
-        public ParamsStatusEnvelopeInputModel(int idEnvelope, string getLobs)
-        {
-            this.idEnvelope = idEnvelope;
-            this.getLobs = getLobs;
-        }
-        public int idEnvelope { get; set; }
-
-        [DefaultValue("N")]
-        public string getLobs { get; private set; }
-    }
 }

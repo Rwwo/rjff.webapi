@@ -29,7 +29,7 @@ namespace rjff.avmb.application.Commands
         {
 
             var pdfDownloadMap = _mapper.Map<core.Models.DownloadPDFEnvelope>(request.DownloadPDFEnvelopeInputModel);
-            pdfDownloadMap.token = _astenService.GetToken();
+            pdfDownloadMap.token = request.DownloadPDFEnvelopeInputModel.token;
 
             if (!ExecutarValidacao(new DownloadPDFEnvelopeValidation(), pdfDownloadMap))
             {

@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rjff.avmb.api", "src\rjff.avmb.api\rjff.avmb.api.csproj", "{D4C6C526-96BA-4BE4-BA9C-BAEAE6676324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rjff.avmb.api", "src\rjff.avmb.api\rjff.avmb.api.csproj", "{D4C6C526-96BA-4BE4-BA9C-BAEAE6676324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rjff.avmb.application", "src\rjff.abmv.application\rjff.avmb.application.csproj", "{31AC83D9-23F2-4C9B-AA24-F118494E0066}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rjff.avmb.application", "src\rjff.abmv.application\rjff.avmb.application.csproj", "{31AC83D9-23F2-4C9B-AA24-F118494E0066}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rjff.avmb.core", "src\rjff.avmb.core\rjff.avmb.core.csproj", "{5D9F2BEB-8468-40B0-800F-B5FE5F9F840F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rjff.avmb.core", "src\rjff.avmb.core\rjff.avmb.core.csproj", "{5D9F2BEB-8468-40B0-800F-B5FE5F9F840F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rjff.avmb.infrastructure", "src\rjff.avmb.infrastructure\rjff.avmb.infrastructure.csproj", "{531E1E69-65B0-4BC7-B962-42B597699598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rjff.avmb.infrastructure", "src\rjff.avmb.infrastructure\rjff.avmb.infrastructure.csproj", "{531E1E69-65B0-4BC7-B962-42B597699598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rjff.avmb.unitTests", "src\rjff.avmb.unitTests\rjff.avmb.unitTests.csproj", "{42C75B1E-3143-47A9-B581-3BF162E76D1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{531E1E69-65B0-4BC7-B962-42B597699598}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{531E1E69-65B0-4BC7-B962-42B597699598}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{531E1E69-65B0-4BC7-B962-42B597699598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C75B1E-3143-47A9-B581-3BF162E76D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C75B1E-3143-47A9-B581-3BF162E76D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C75B1E-3143-47A9-B581-3BF162E76D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C75B1E-3143-47A9-B581-3BF162E76D1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

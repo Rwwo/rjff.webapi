@@ -32,7 +32,7 @@ namespace rjff.avmb.application.Commands
         {
             var EncaminharEnvelopeAssinaturaMap = _mapper.Map<core.Models.EncaminharEnvelopeParaAssinatura>(request.EncaminharEnvelopeParaAssinaturaInputModel);
 
-            EncaminharEnvelopeAssinaturaMap.token = _astenService.GetToken();
+            EncaminharEnvelopeAssinaturaMap.token = request.EncaminharEnvelopeParaAssinaturaInputModel.token;
 
             if (!ExecutarValidacao(new EncaminharEnvelopeParaAssinaturaValidation(), EncaminharEnvelopeAssinaturaMap))
             {
