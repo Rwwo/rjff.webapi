@@ -10,6 +10,7 @@ using rjff.avmb.application.Queries;
 using rjff.avmb.core.InputModels;
 using rjff.avmb.core.Interfaces;
 using rjff.avmb.core.ViewModel;
+using rjff.avmb.infrastructure.Services.AstenModels;
 
 namespace rjff.avmb.api.Controllers
 {
@@ -48,6 +49,19 @@ namespace rjff.avmb.api.Controllers
             var result = await _mediator.Send(EncaminharParaAssinaturaCommand);
 
             return CustomResponse(HttpStatusCode.OK, EncaminharInputModel);
+        }
+
+        [HttpPost("download-pdf-envelope")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<ResponseDownloadPDFEnvelope>> EncaminharParaAssinatura(DownloadPDFEnvelopeInputModel input)
+        {
+            if (!ModelState.IsValid)
+                return CustomResponse(ModelState);
+
+            var downloadPDFEnvelopeCommand = new DownloadPDFEnvelopeCommand(input);
+            var result = await _mediator.Send(downloadPDFEnvelopeCommand);
+
+            return CustomResponse(HttpStatusCode.OK, result.Result);
         }
 
         [HttpGet("status-envelope/{idEnvelope:int}")]

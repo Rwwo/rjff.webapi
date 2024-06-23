@@ -47,6 +47,10 @@ namespace rjff.avmb.infrastructure.Services.AstenModels
 
 
 
+
+
+
+
     // Classe de dados de signatário para reenvio
     public class DadosSignatarioReenvio
     {
@@ -74,8 +78,16 @@ namespace rjff.avmb.infrastructure.Services.AstenModels
     {
         public Aviso aviso { get; set; }
     }
-
-
+    public class ResponseDownloadPDFEnvelope
+    {
+        public DataDownloadPDFEnvelope response { get; set; }
+    }
+    public class DataDownloadPDFEnvelope
+    {
+        public string envelopeContent { get; set; }
+        public string nomeArquivo { get; set; }
+        public string mimeType { get; set; }
+    }
 
     public class ResponseStatusEnvelope
     {

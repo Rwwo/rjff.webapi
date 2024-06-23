@@ -6,6 +6,5 @@ namespace rjff.avmb.core.Models
     {
         public string token { get; set; }
         public ParamsConfigurarSignatarioInputModel @params { get; set; }
-
     }
 }

@@ -2,7 +2,6 @@
 
 using MediatR;
 
-using rjff.avmb.core.InputModels;
 using rjff.avmb.core.Interfaces;
 using rjff.avmb.core.Models;
 using rjff.avmb.core.Models.Validations;

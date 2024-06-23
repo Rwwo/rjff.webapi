@@ -155,5 +155,10 @@ namespace rjff.avmb.infrastructure.Services
         {
             return ExecuteRequestAsync<BaseResponse<BaseDataWithAvisos>>(Constantes.URL_ENCAMINHAR_ENVELOPE_ASSINATURA, HttpMethod.Post, envFinal);
         }
+
+        public Task<GenericResult<ResponseDownloadPDFEnvelope>> DownloadPDFEnvelope(AstenModels.DownloadPDFEnvelope envFinal)
+        {
+            return ExecuteRequestAsync<ResponseDownloadPDFEnvelope>(Constantes.URL_DOWNLOAD_PDF_ENVELOPE, HttpMethod.Post, envFinal);
+        }
     }
 }

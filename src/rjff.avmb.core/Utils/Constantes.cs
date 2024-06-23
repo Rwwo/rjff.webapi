@@ -9,6 +9,8 @@
         public const string URL_INSERIR_SIGNATARIO_ENVELOPE = "inserirSignatarioEnvelope";
         public const string URL_ENCAMINHAR_ENVELOPE_ASSINATURA = "encaminharEnvelopeParaAssinaturas";
         public const string URL_STATUS_ENVELOPE = "getDadosEnvelope";
+        public const string URL_DOWNLOAD_PDF_ENVELOPE = "downloadPDFEnvelope";
+
 
     }
 }
