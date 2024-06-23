@@ -1,6 +1,4 @@
-﻿using rjff.avmb.core.Interfaces;
-
-namespace rjff.avmb.core.Models
+﻿namespace rjff.avmb.core.Models
 {
 
     public class JwtSettings

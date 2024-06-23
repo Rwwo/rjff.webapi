@@ -3,6 +3,6 @@
     public class ListaxmlauxiliarInputModel
     {
 
-        public List<XmlauxiliarInputModel>? XMLAuxiliar { get;  set; }
+        public List<XmlauxiliarInputModel>? XMLAuxiliar { get; set; }
     }
 }

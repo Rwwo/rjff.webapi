@@ -1,6 +1,4 @@
-﻿using rjff.avmb.core.Interfaces;
-
-namespace rjff.avmb.core.InputModels
+﻿namespace rjff.avmb.core.InputModels
 {
     public class CriarEnvelopeInputModel
     {

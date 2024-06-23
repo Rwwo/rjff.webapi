@@ -1,5 +1,4 @@
 ﻿using rjff.avmb.core.InputModels;
-using rjff.avmb.core.Models;
 
 namespace rjff.avmb.infrastructure.Services.AstenModels
 {

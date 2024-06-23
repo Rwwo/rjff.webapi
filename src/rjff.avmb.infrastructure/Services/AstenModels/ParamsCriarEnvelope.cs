@@ -1,8 +1,6 @@
-﻿using rjff.avmb.core.Interfaces;
-
-namespace rjff.avmb.infrastructure.Services.AstenModels
+﻿namespace rjff.avmb.infrastructure.Services.AstenModels
 {
-    public class ParamsCriarEnvelope 
+    public class ParamsCriarEnvelope
     {
         public Envelope Envelope { get; set; }
         public string gerarTags { get; set; }

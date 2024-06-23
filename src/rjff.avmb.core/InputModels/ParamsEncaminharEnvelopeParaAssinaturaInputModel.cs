@@ -17,13 +17,13 @@ namespace rjff.avmb.core.InputModels
 
         [DefaultValue("N")]
         public string agendarEnvio { get; private set; }
-        
+
         [DefaultValue("N")]
         public string detectarCampos { get; private set; }
-        
+
         [DefaultValue(null)]
         public string? dataEnvioAgendado { get; private set; }
-        
+
         [DefaultValue(null)]
         public string? horaEnvioAgendado { get; private set; }
 

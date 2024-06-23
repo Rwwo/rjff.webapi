@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 
 namespace rjff.avmb.api.Extensions
 {

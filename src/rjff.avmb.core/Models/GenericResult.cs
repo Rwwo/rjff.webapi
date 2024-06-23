@@ -18,6 +18,6 @@ namespace rjff.avmb.core.Models
     public class Error
     {
         public string error { get; set; }
-        
+
     }
 }

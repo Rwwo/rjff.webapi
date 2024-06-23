@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace rjff.avmb.core.InputModels
+﻿namespace rjff.avmb.core.InputModels
 {
     public class ListaxmlsignatarioInputModel
     {

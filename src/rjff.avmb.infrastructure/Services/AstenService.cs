@@ -1,12 +1,12 @@
 ﻿using Flurl.Http;
+
 using Microsoft.Extensions.Options;
+
 using Newtonsoft.Json;
+
 using rjff.avmb.core.Models;
 using rjff.avmb.core.Utils;
 using rjff.avmb.infrastructure.Services.AstenModels;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace rjff.avmb.infrastructure.Services
 {

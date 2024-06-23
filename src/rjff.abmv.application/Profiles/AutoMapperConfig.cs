@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 
 using rjff.avmb.core.InputModels;
-using rjff.avmb.core.Models;
 using rjff.avmb.core.ViewModel;
 using rjff.avmb.infrastructure.Services.AstenModels;
 

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace rjff.avmb.infrastructure.Services.AstenModels
+﻿namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     public class CriarEnvelopeBuilder
     {

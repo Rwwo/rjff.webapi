@@ -5,7 +5,7 @@
         //private string token { get; private set; }
         public ParamsEncaminharEnvelopeParaAssinaturaInputModel @params { get; private set; }
 
-        public EncaminharEnvelopeParaAssinaturaInputModel( ParamsEncaminharEnvelopeParaAssinaturaInputModel @params)
+        public EncaminharEnvelopeParaAssinaturaInputModel(ParamsEncaminharEnvelopeParaAssinaturaInputModel @params)
         {
             //this.token = token;
             this.@params = @params;

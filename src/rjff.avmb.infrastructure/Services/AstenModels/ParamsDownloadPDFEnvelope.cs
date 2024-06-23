@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel;
 
-using rjff.avmb.core.Models;
-
 namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     public class ParamsDownloadPDFEnvelope

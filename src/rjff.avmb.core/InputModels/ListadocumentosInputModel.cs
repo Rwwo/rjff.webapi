@@ -1,9 +1,7 @@
-﻿using System.ComponentModel;
-
-namespace rjff.avmb.core.InputModels
+﻿namespace rjff.avmb.core.InputModels
 {
     public class ListadocumentosInputModel
     {
-        public List<DocumentoInputModel> Documento { get; set; } 
+        public List<DocumentoInputModel> Documento { get; set; }
     }
 }

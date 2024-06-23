@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace rjff.avmb.infrastructure.Services.AstenModels
+﻿namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     public class Listasignatariosenvelope
     {

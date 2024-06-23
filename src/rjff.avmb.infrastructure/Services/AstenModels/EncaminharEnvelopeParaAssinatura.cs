@@ -1,8 +1,4 @@
-﻿using Microsoft.Identity.Client;
-
-using rjff.avmb.core.Models;
-
-namespace rjff.avmb.infrastructure.Services.AstenModels
+﻿namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     public class EncaminharEnvelopeParaAssinatura
     {

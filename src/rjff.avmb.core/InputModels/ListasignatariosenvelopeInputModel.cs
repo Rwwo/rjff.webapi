@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
-namespace rjff.avmb.core.InputModels
+﻿namespace rjff.avmb.core.InputModels
 {
     public class ListasignatariosenvelopeInputModel
     {

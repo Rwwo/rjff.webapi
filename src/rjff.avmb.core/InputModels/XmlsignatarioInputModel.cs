@@ -6,19 +6,19 @@ namespace rjff.avmb.core.InputModels
     {
 
         [DefaultValue(null)]
-        public string? emailSignatario { get;  set; }
+        public string? emailSignatario { get; set; }
         [DefaultValue(null)]
-        public string? idNodeAssinatura { get;  set; }
+        public string? idNodeAssinatura { get; set; }
         [DefaultValue(null)]
-        public string? restringirTiposCertificados { get;  set; }
+        public string? restringirTiposCertificados { get; set; }
         [DefaultValue(null)]
-        public string? restringirPessoaFisica { get;  set; }
+        public string? restringirPessoaFisica { get; set; }
         [DefaultValue(null)]
-        public string? restringirPessoaJuridica { get;  set; }
+        public string? restringirPessoaJuridica { get; set; }
         [DefaultValue(null)]
-        public string? cpfCnpjAceito { get;  set; }
+        public string? cpfCnpjAceito { get; set; }
         [DefaultValue(null)]
-        public string? carimboInterno { get;  set; }
+        public string? carimboInterno { get; set; }
 
     }
 

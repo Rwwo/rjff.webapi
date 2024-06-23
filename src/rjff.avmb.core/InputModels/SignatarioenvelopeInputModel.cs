@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel;
 
-using rjff.avmb.core.Models;
-
 namespace rjff.avmb.core.InputModels
 {
     public class SignatarioenvelopeInputModel
@@ -19,7 +17,7 @@ namespace rjff.avmb.core.InputModels
         public int ordem { get; private set; }
 
         [DefaultValue(null)]
-        public object? tagAncoraCampos { get;  set; }
+        public object? tagAncoraCampos { get; set; }
         public ConfigassinaturaInputModel ConfigAssinatura { get; private set; }
     }
 }

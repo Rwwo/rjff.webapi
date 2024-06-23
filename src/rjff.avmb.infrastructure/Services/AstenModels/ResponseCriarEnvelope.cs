@@ -1,6 +1,4 @@
-﻿using MediatR.NotificationPublishers;
-
-namespace rjff.avmb.infrastructure.Services.AstenModels
+﻿namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     // Classe base para todas as respostas genéricas
     public class BaseResponse<T>

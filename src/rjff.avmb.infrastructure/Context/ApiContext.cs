@@ -5,7 +5,7 @@ using rjff.avmb.core.Models;
 
 namespace rjff.avmb.infrastructure.Context
 {
-      public class ApiContext : IdentityDbContext
+    public class ApiContext : IdentityDbContext
     {
 
         public ApiContext(DbContextOptions<ApiContext> options)
