@@ -10,6 +10,11 @@ public class UnitOfWork : IUnitOfWork
         _dbContext = dbContext;
     }
 
+    private IConfigurarSignatarioRepository _ConfigurarSignatarioRepository = null;
+    public IConfigurarSignatarioRepository ConfigurarSignatarioRepository
+    {
+        get => _ConfigurarSignatarioRepository ?? (_ConfigurarSignatarioRepository = new ConfigurarSignatarioRepository(_dbContext));
+    }
 
     private ICriarEnvelopeRepository _CriarEnvelopeRepository = null;
     public ICriarEnvelopeRepository CriarEnvelopeRepository

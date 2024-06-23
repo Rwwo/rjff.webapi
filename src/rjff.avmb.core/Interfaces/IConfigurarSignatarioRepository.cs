@@ -2,7 +2,7 @@
 
 namespace rjff.avmb.core.Interfaces
 {
-    public interface ICriarEnvelopeRepository : IRepository<CriarEnvelope>
+    public interface IConfigurarSignatarioRepository : IRepository<ConfigurarSignatario>
     {
 
     }
