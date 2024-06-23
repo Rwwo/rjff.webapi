@@ -18,16 +18,6 @@ namespace rjff.avmb.core.Models
     public class Error
     {
         public string error { get; set; }
-        //public string code { get; set; }
-        //public string message { get; set; }
-        //public Details details { get; set; }
+        
     }
-
-    //public class Details
-    //{
-    //    [JsonExtensionData]
-    //    public Dictionary<string, object> AdditionalData { get; set; }
-    //}
-
-
 }

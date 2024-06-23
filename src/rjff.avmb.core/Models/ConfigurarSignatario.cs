@@ -2,10 +2,10 @@
 
 namespace rjff.avmb.core.Models
 {
-    public class CriarEnvelope : Entity
+    public class ConfigurarSignatario : Entity
     {
         public string token { get; set; }
-        public ParamsCriarEnvelopeInputModel @params { get; set; }
+        public ParamsConfigurarSignatarioInputModel @params { get; set; }
 
     }
 }
