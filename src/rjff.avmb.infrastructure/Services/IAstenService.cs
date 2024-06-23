@@ -6,6 +6,8 @@ namespace rjff.avmb.infrastructure.Services
     public interface IAstenService
     {
         string GetToken();
-        Task<GenericResult<EnvelopeData>> CriarNovoEnvelope(AstenModels.CriarEnvelope envelope);
+        Task<GenericResult<ResponseCriarEnvelope>> CriarNovoEnvelope(AstenModels.CriarEnvelope envelope);
+        Task<GenericResult<ResponseConfigurarSignatario>> ConfigurarSignatario(AstenModels.ConfigurarSignatario envFinal);
+        Task<GenericResult<ResponseStatusEnvelope>> StatusEnvelope(AstenModels.StatusEnvelope envFinal);
     }
 }

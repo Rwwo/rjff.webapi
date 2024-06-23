@@ -1,11 +1,11 @@
 ﻿namespace rjff.avmb.infrastructure.Services.AstenModels
 {
 
-    public class EnvelopeBase
+    public class EnvelopeInputDTO
     {
         public int id { get; set; }
     }
-    public class Envelope : EnvelopeBase
+    public class Envelope : EnvelopeInputDTO
     {
         public string descricao { get; set; }
         public Repositorio Repositorio { get; set; }

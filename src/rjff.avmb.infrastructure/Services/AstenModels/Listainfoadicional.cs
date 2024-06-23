@@ -2,7 +2,7 @@
 {
     public class Listainfoadicional
     {
-        public List<object> InfoAdicional { get; set; }
+        public List<string> InfoAdicional { get; set; } = Enumerable.Empty<string>().ToList();
     }
 
 }

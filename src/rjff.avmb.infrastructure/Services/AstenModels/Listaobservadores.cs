@@ -2,7 +2,7 @@
 {
     public class Listaobservadores
     {
-        public List<object> Observador { get; set; }
+        public List<string> Observador { get; set; } = Enumerable.Empty<string>().ToList();
     }
 
 }

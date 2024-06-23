@@ -44,6 +44,7 @@ namespace rjff.avmb.infrastructure
                 options.LogTo(Console.WriteLine, LogLevel.Warning);
             });
 
+
             return services;
         }
         public static IServiceCollection AddCorsConfig(this IServiceCollection services)

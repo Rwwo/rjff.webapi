@@ -1,8 +1,10 @@
-﻿namespace rjff.avmb.infrastructure.Services.AstenModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     public class Listatags
-    {
-        public List<object> Tag { get; set; }
+    {        
+        public List<string> Tag { get; set; } = Enumerable.Empty<string>().ToList();
     }
 
 }

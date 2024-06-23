@@ -1,7 +1,10 @@
-﻿namespace rjff.avmb.infrastructure.Services.AstenModels
+﻿using System.ComponentModel;
+
+namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     public class Listasignatariosenvelope
     {
-        public List<object> SignatarioEnvelope { get; set; }
+        public List<string> SignatarioEnvelope { get; set; } = Enumerable.Empty<string>().ToList();
+
     }
 }

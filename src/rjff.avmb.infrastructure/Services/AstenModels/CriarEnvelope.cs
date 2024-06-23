@@ -1,4 +1,6 @@
-﻿namespace rjff.avmb.infrastructure.Services.AstenModels
+﻿using rjff.avmb.core.InputModels;
+
+namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     public class CriarEnvelope
     {

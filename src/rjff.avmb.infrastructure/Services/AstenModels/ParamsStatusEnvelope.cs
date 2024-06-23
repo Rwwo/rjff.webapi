@@ -4,7 +4,8 @@ namespace rjff.avmb.infrastructure.Services.AstenModels
 {
     public class ParamsStatusEnvelope : Params
     {
-        public int idProprietario { get; set; }
+        public int idEnvelope { get; set; }
+        public string getLobs { get; set; }
     }
 
 

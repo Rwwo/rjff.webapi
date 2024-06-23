@@ -2,7 +2,7 @@
 
 namespace rjff.avmb.infrastructure.Services.AstenModels
 {
-    public class ParamsConfiguraraSignatario : Params
+    public class ParamsConfigurarSignatario : Params
     {
         public Signatarioenvelope SignatarioEnvelope { get; set; }
     }
