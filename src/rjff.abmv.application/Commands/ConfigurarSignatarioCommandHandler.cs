@@ -33,6 +33,7 @@ namespace rjff.avmb.application.Commands
         {
 
             var ConfSignatarioMap = _mapper.Map<core.Models.ConfigurarSignatario>(request.ConfigurarSignatarioInputModel);
+            ConfSignatarioMap.token = _astenService.GetToken();
 
             if (!ExecutarValidacao(new ConfigurarSignatarioValidation(), ConfSignatarioMap))
             {

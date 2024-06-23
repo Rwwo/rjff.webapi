@@ -35,6 +35,8 @@ namespace rjff.avmb.application.Commands
 
             var criarEnvelopeMap = _mapper.Map<core.Models.CriarEnvelope>(request.CriarEnvelopeInputModel);
 
+            criarEnvelopeMap.token = _astenService.GetToken();
+
             if (!ExecutarValidacao(new CriarEnvelopeValidation(), criarEnvelopeMap))
             {
                 var erro = new GenericResult<ResponseCriarEnvelope>()

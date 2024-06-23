@@ -35,14 +35,18 @@ namespace rjff.avmb.application.Queries
                 }
             };
 
-             var statusEnv = await _astenService.StatusEnvelope(statusEnvelope);
+            var statusEnv = await _astenService.StatusEnvelope(statusEnvelope);
 
-            if(statusEnv.Result != null)
+            if (statusEnv.Result != null)
             {
                 return _mapper.Map<StatusEnvelopeViewModel>(statusEnv.Result);
-            }else
+            }
+            else
             {
-                Notificar("Não foi possível persistir o status do envelope. Verifique comunicação com Asten");
+                foreach (var item in statusEnv.Errors)
+                {
+                    Notificar(item.error);
+                }
             }
 
             return null;
