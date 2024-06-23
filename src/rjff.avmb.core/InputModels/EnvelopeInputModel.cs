@@ -4,7 +4,7 @@ namespace rjff.avmb.core.InputModels
 {
     public class EnvelopeInputModel
     {
-        public EnvelopeInputModel(string descricao, RepositorioInputModel Repositorio, string? mensagem, string? mensagemObservadores, string? mensagemNotificacaoSMS, string? dataExpiracao, string? horaExpiracao, string usarOrdem, ConfigAuxiliarInputModel ConfigAuxiliar, ListadocumentosInputModel listaDocumentos, ListasignatariosenvelopeInputModel listaSignatariosEnvelope, ListaobservadoresInputModel listaObservadores, ListatagsInputModel listaTags, ListainfoadicionalInputModel listaInfoAdicional, string incluirHashTodasPaginas, string permitirDespachos, string ignorarNotificacoes, string ignorarNotificacoesPendentes, object qrCodePosLeft, object qrCodePosTop, object dataIniContrato, object dataFimContrato, object objetoContrato, object numContrato, object valorContrato, object descricaoContratante, object descricaoContratado, string bloquearDesenhoPaginas)
+        public EnvelopeInputModel(string descricao, RepositorioInputModel Repositorio, string? mensagem, string? mensagemObservadores, string? mensagemNotificacaoSMS, string? dataExpiracao, string? horaExpiracao, string usarOrdem, ConfigAuxiliarInputModel ConfigAuxiliar, ListadocumentosInputModel listaDocumentos, ListasignatariosenvelopeInputModel listaSignatariosEnvelope, ListaobservadoresInputModel listaObservadores, ListatagsInputModel listaTags, ListainfoadicionalInputModel listaInfoAdicional, string incluirHashTodasPaginas, string permitirDespachos, string ignorarNotificacoes, string ignorarNotificacoesPendentes, string? qrCodePosLeft, string? qrCodePosTop, string? dataIniContrato, string? dataFimContrato, string? objetoContrato, string? numContrato, decimal? valorContrato, string? descricaoContratante, string? descricaoContratado, string bloquearDesenhoPaginas)
         {
             this.descricao = descricao;
             this.Repositorio = Repositorio;
@@ -36,6 +36,7 @@ namespace rjff.avmb.core.InputModels
             this.bloquearDesenhoPaginas = bloquearDesenhoPaginas;
         }
 
+        [DefaultValue("Novo Contrato")]
         public string descricao { get; set; }
         public RepositorioInputModel Repositorio { get; set; }
 
@@ -72,23 +73,32 @@ namespace rjff.avmb.core.InputModels
         public string ignorarNotificacoesPendentes { get; set; }
 
         [DefaultValue(null)]
-        public object qrCodePosLeft { get; set; }
+        public string? qrCodePosLeft { get; set; }
+
         [DefaultValue(null)]
-        public object qrCodePosTop { get; set; }
+        public string? qrCodePosTop { get; set; }
+
         [DefaultValue(null)]
-        public object dataIniContrato { get; set; }
+        public string? dataIniContrato { get; set; }
+
         [DefaultValue(null)]
-        public object dataFimContrato { get; set; }
+        public string? dataFimContrato { get; set; }
+
         [DefaultValue(null)]
-        public object objetoContrato { get; set; }
+        public string? objetoContrato { get; set; }
+
         [DefaultValue(null)]
-        public object numContrato { get; set; }
+        public string? numContrato { get; set; }
+
         [DefaultValue(null)]
-        public object valorContrato { get; set; }
+        public decimal? valorContrato { get; set; }
+
         [DefaultValue(null)]
-        public object descricaoContratante { get; set; }
+        public string? descricaoContratante { get; set; }
+
         [DefaultValue(null)]
-        public object descricaoContratado { get; set; }
+        public string? descricaoContratado { get; set; }
+
         [DefaultValue("S")]
         public string bloquearDesenhoPaginas { get; set; }
     }

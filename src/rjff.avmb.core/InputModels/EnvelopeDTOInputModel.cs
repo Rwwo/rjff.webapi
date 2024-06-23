@@ -2,14 +2,14 @@
 
 namespace rjff.avmb.core.InputModels
 {
-    public class RepositorioInputModel
+    public class EnvelopeDTOInputModel
     {
-        public RepositorioInputModel(int id)
+        public EnvelopeDTOInputModel(int id)
         {
             this.id = id;
         }
 
-        [DefaultValue("5757")]
+        [DefaultValue("64661")]
         public int id { get; private set; }
     }
 }

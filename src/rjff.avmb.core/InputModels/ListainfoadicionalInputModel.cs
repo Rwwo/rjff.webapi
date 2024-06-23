@@ -4,7 +4,7 @@ namespace rjff.avmb.core.InputModels
 {
     public class ListainfoadicionalInputModel
     {
-        [DefaultValue(typeof(List<object>), "[]")]
-        public List<object> InfoAdicional { get; set; } = Enumerable.Empty<object>().ToList();
+
+        public List<string> InfoAdicional { get; set; } = Enumerable.Empty<string>().ToList();
     }
 }

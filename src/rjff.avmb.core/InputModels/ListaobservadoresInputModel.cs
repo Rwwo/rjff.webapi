@@ -4,7 +4,7 @@ namespace rjff.avmb.core.InputModels
 {
     public class ListaobservadoresInputModel
     {
-        [DefaultValue(typeof(List<object>), "[]")]
-        public List<object> Observador { get; set; } = Enumerable.Empty<object>().ToList();  
+
+        public List<string> Observador { get; set; } = Enumerable.Empty<string>().ToList();
     }
 }
