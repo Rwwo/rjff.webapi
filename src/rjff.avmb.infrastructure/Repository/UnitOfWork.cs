@@ -22,6 +22,12 @@ public class UnitOfWork : IUnitOfWork
         get => _CriarEnvelopeRepository ?? (_CriarEnvelopeRepository = new CriarEnvelopeRepository(_dbContext));
     }
 
+    private IEncaminharEnvelopeParaAssinaturaRepository _EncaminharEnvelopeParaAssinaturaRepository = null;
+    public IEncaminharEnvelopeParaAssinaturaRepository EncaminharEnvelopeParaAssinaturaRepository
+    {
+        get => _EncaminharEnvelopeParaAssinaturaRepository ?? (_EncaminharEnvelopeParaAssinaturaRepository = new EncaminharEnvelopeParaAssinaturaRepository(_dbContext));
+    }
+
     public async Task Commit()
     {
         await _dbContext.SaveChangesAsync();

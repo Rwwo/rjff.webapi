@@ -29,10 +29,23 @@ namespace rjff.avmb.api.Controllers
             if (!ModelState.IsValid)
                 return CustomResponse(ModelState);
 
-            var criarCorretorCommand = new CriarEnvelopeCommand(EnvelopeInputModel);
-            var result = await _mediator.Send(criarCorretorCommand);
+            var criarEnvelopeCommand = new CriarEnvelopeCommand(EnvelopeInputModel);
+            var result = await _mediator.Send(criarEnvelopeCommand);
 
             return CustomResponse(HttpStatusCode.Created, EnvelopeInputModel);
+        }
+
+        [HttpPost("encaminhar-envelope-assinatura")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public async Task<ActionResult<CriarEnvelopeInputModel>> EncaminharParaAssinatura(EncaminharEnvelopeParaAssinaturaInputModel EncaminharInputModel)
+        {
+            if (!ModelState.IsValid)
+                return CustomResponse(ModelState);
+
+            var EncaminharParaAssinaturaCommand = new EncaminharEnvelopeParaAssinaturaCommand(EncaminharInputModel);
+            var result = await _mediator.Send(EncaminharParaAssinaturaCommand);
+
+            return CustomResponse(HttpStatusCode.OK, EncaminharInputModel);
         }
 
         [HttpGet("status-envelope/{idEnvelope:int}")]

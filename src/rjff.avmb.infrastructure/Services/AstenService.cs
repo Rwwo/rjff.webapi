@@ -149,37 +149,11 @@ namespace rjff.avmb.infrastructure.Services
         public Task<GenericResult<ResponseStatusEnvelope>> StatusEnvelope(StatusEnvelope envFinal)
         {
             return ExecuteRequestAsync<ResponseStatusEnvelope>(Constantes.URL_STATUS_ENVELOPE, HttpMethod.Post, envFinal);
+        }
 
-            /*
-            var url = _urlBase + Constantes.URL_STATUS_ENVELOPE;
-            try
-            {
-                var request = url
-                    .WithOAuthBearerToken(_token)
-                    .WithHeader("accept", "application/json")
-                    .WithHeader("Content-Type", "application/json");
-
-                var response = await request.PostJsonAsync(envFinal);
-                var responseContent = await response.GetStringAsync();
-
-                return JsonConvert.DeserializeObject<ResponseStatusEnvelope>(responseContent);
-            }
-            catch (JsonException ex)
-            {
-                throw new Exception("Erro ao desserializar a resposta JSON.", ex);
-            }
-            catch (FlurlHttpException ex)
-            {
-                var errorDetails = await ex.GetResponseStringAsync();
-                var error = JsonConvert.DeserializeObject<Error>(errorDetails);
-                throw new Exception($"Erro HTTP: {error.error}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro desconhecido ao fazer a solicitação.", ex);
-            }
-
-            */
+        public Task<GenericResult<BaseResponse<BaseDataWithAvisos>>> EncaminharEnvelopeParaAssinatura(AstenModels.EncaminharEnvelopeParaAssinatura envFinal)
+        {
+            return ExecuteRequestAsync<BaseResponse<BaseDataWithAvisos>>(Constantes.URL_ENCAMINHAR_ENVELOPE_ASSINATURA, HttpMethod.Post, envFinal);
         }
     }
 }

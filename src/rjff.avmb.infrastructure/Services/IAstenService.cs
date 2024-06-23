@@ -9,5 +9,6 @@ namespace rjff.avmb.infrastructure.Services
         Task<GenericResult<ResponseCriarEnvelope>> CriarNovoEnvelope(AstenModels.CriarEnvelope envelope);
         Task<GenericResult<ResponseConfigurarSignatario>> ConfigurarSignatario(AstenModels.ConfigurarSignatario envFinal);
         Task<GenericResult<ResponseStatusEnvelope>> StatusEnvelope(AstenModels.StatusEnvelope envFinal);
+        Task<GenericResult<BaseResponse<BaseDataWithAvisos>>> EncaminharEnvelopeParaAssinatura(AstenModels.EncaminharEnvelopeParaAssinatura envFinal);
     }
 }

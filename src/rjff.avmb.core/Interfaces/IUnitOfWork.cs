@@ -4,6 +4,7 @@
     {
         ICriarEnvelopeRepository CriarEnvelopeRepository { get; }
         IConfigurarSignatarioRepository ConfigurarSignatarioRepository { get; }
+        IEncaminharEnvelopeParaAssinaturaRepository EncaminharEnvelopeParaAssinaturaRepository { get; }
         Task Commit();
     }
 

@@ -16,6 +16,7 @@ namespace rjff.avmb.infrastructure.Context
 
         public DbSet<CriarEnvelope> CriarEnvelope { get; set; }
         public DbSet<ConfigurarSignatario> ConfigurarSignatario { get; set; }
+        public DbSet<EncaminharEnvelopeParaAssinatura> EncaminharEnvelopeParaAssinatura { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,7 +24,7 @@ namespace rjff.avmb.infrastructure.Context
             foreach (var property in modelBuilder.Model.GetEntityTypes()
                 .SelectMany(e => e.GetProperties()
                     .Where(p => p.ClrType == typeof(string))))
-                property.SetColumnType("varchar(100)");
+                property.SetColumnType("varchar(260)");
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApiContext).Assembly);
 

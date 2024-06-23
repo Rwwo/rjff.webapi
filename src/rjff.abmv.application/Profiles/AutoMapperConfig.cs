@@ -13,6 +13,10 @@ namespace rjff.avmb.application.Profiles
     {
         public AutoMapperConfig()
         {
+            CreateMap<EncaminharEnvelopeParaAssinaturaInputModel, core.Models.EncaminharEnvelopeParaAssinatura>()
+                .ForMember(dest => dest.@params, opt => opt.MapFrom(src => src.@params));
+
+
             CreateMap<ConfigurarSignatarioInputModel, core.Models.ConfigurarSignatario>()
                 .ForMember(dest => dest.@params, opt => opt.MapFrom(src => src.@params));
 

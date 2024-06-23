@@ -25,19 +25,19 @@ namespace rjff.avmb.infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("Id");
 
@@ -58,14 +58,14 @@ namespace rjff.avmb.infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("Id");
 
@@ -77,18 +77,18 @@ namespace rjff.avmb.infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
@@ -101,30 +101,30 @@ namespace rjff.avmb.infrastructure.Migrations
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("Id");
 
@@ -148,14 +148,14 @@ namespace rjff.avmb.infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("Id");
 
@@ -167,17 +167,17 @@ namespace rjff.avmb.infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -189,10 +189,10 @@ namespace rjff.avmb.infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -204,16 +204,16 @@ namespace rjff.avmb.infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
@@ -238,7 +238,7 @@ namespace rjff.avmb.infrastructure.Migrations
 
                     b.Property<string>("token")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("Id");
 
@@ -263,11 +263,36 @@ namespace rjff.avmb.infrastructure.Migrations
 
                     b.Property<string>("token")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(260)");
 
                     b.HasKey("Id");
 
                     b.ToTable("criarenvelope", (string)null);
+                });
+
+            modelBuilder.Entity("rjff.avmb.core.Models.EncaminharEnvelopeParaAssinatura", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deletado")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("params")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("token")
+                        .IsRequired()
+                        .HasColumnType("varchar(260)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("encaminhadosassinar", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
