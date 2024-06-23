@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace rjff.avmb.infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDB : Migration
+    public partial class CreateBD : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,6 +48,36 @@ namespace rjff.avmb.infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "configurarsignatario",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    token = table.Column<string>(type: "varchar(100)", nullable: false),
+                    @params = table.Column<string>(name: "params", type: "nvarchar(max)", nullable: false),
+                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deletado = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_configurarsignatario", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "criarenvelope",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    token = table.Column<string>(type: "varchar(100)", nullable: false),
+                    @params = table.Column<string>(name: "params", type: "nvarchar(max)", nullable: false),
+                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deletado = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_criarenvelope", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -212,6 +243,12 @@ namespace rjff.avmb.infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "configurarsignatario");
+
+            migrationBuilder.DropTable(
+                name: "criarenvelope");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

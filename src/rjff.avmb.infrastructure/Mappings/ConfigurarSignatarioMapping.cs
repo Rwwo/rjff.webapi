@@ -6,21 +6,20 @@ using rjff.avmb.core.Models;
 
 namespace rjff.avmb.infrastructure.Mappings
 {
-    public class CriarEnvelopeMapping : IEntityTypeConfiguration<CriarEnvelope>
+    public class ConfigurarSignatarioMapping : IEntityTypeConfiguration<ConfigurarSignatario>
     {
-        public void Configure(EntityTypeBuilder<CriarEnvelope> builder)
+        public void Configure(EntityTypeBuilder<ConfigurarSignatario> builder)
         {
 
             // Chave primária
             builder
                 .HasKey(t => t.Id);
 
-
             builder
                 .Property(r => r.@params)
-                .HasConversion(new JsonValueConverter<ParamsCriarEnvelopeInputModel>());
+                .HasConversion(new JsonValueConverter<ParamsConfigurarSignatarioInputModel>());
 
-            builder.ToTable("criarenvelope");
+            builder.ToTable("configurarsignatario");
         }
     }
 }

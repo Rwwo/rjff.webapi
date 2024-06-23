@@ -5,7 +5,7 @@ using rjff.avmb.core.Models;
 
 namespace rjff.avmb.infrastructure.Context
 {
-    public class ApiContext : IdentityDbContext
+      public class ApiContext : IdentityDbContext
     {
 
         public ApiContext(DbContextOptions<ApiContext> options)
@@ -15,6 +15,7 @@ namespace rjff.avmb.infrastructure.Context
         }
 
         public DbSet<CriarEnvelope> CriarEnvelope { get; set; }
+        public DbSet<ConfigurarSignatario> ConfigurarSignatario { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

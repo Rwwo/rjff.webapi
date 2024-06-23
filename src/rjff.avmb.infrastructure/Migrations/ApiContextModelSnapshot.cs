@@ -220,6 +220,31 @@ namespace rjff.avmb.infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("rjff.avmb.core.Models.ConfigurarSignatario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deletado")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("params")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("token")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("configurarsignatario", (string)null);
+                });
+
             modelBuilder.Entity("rjff.avmb.core.Models.CriarEnvelope", b =>
                 {
                     b.Property<Guid>("Id")
@@ -232,11 +257,11 @@ namespace rjff.avmb.infrastructure.Migrations
                     b.Property<bool>("Deletado")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Params")
+                    b.Property<string>("params")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Token")
+                    b.Property<string>("token")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 

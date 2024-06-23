@@ -12,8 +12,8 @@ using rjff.avmb.infrastructure.Context;
 namespace rjff.avmb.infrastructure.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20240615135115_CreateDB")]
-    partial class CreateDB
+    [Migration("20240622213552_CreateBD")]
+    partial class CreateBD
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -221,6 +221,56 @@ namespace rjff.avmb.infrastructure.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("rjff.avmb.core.Models.ConfigurarSignatario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deletado")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("params")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("token")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("configurarsignatario", (string)null);
+                });
+
+            modelBuilder.Entity("rjff.avmb.core.Models.CriarEnvelope", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deletado")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("params")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("token")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("criarenvelope", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
