@@ -4,6 +4,7 @@ using MediatR;
 
 using rjff.avmb.core.InputModels;
 using rjff.avmb.core.Interfaces;
+using rjff.avmb.core.Models;
 using rjff.avmb.core.Models.Validations;
 using rjff.avmb.core.Services;
 using rjff.avmb.infrastructure.Services;
@@ -12,7 +13,7 @@ using rjff.avmb.infrastructure.Services.AstenModels;
 
 namespace rjff.avmb.application.Commands
 {
-    public class CriarEnvelopeCommandHandler : BaseService, IRequestHandler<CriarEnvelopeCommand, CriarEnvelopeInputModel>
+    public class CriarEnvelopeCommandHandler : BaseService, IRequestHandler<CriarEnvelopeCommand, GenericResult<ResponseCriarEnvelope>>
     {
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
@@ -29,52 +30,72 @@ namespace rjff.avmb.application.Commands
         }
 
 
-        public async Task<CriarEnvelopeInputModel> Handle(CriarEnvelopeCommand request, CancellationToken cancellationToken)
+        public async Task<GenericResult<ResponseCriarEnvelope>> Handle(CriarEnvelopeCommand request, CancellationToken cancellationToken)
         {
-            try
+
+            var criarEnvelopeMap = _mapper.Map<core.Models.CriarEnvelope>(request.CriarEnvelopeInputModel);
+
+            if (!ExecutarValidacao(new CriarEnvelopeValidation(), criarEnvelopeMap))
             {
+                var erro = new GenericResult<ResponseCriarEnvelope>()
+                {
+                    HttpCode = 500,
+                    Result = null,
+                    Errors = new List<Error>()
+                    {
+                        new Error()
+                        {
+                            error = "Erro de Validação dos campos;"
+                        }
+                    }
+                };
 
-                var criarEnvelopeMap = _mapper.Map<core.Models.CriarEnvelope>(request.CriarEnvelopeInputModel);
+                return erro;
+            }
 
-                if (!ExecutarValidacao(new CriarEnvelopeValidation(), criarEnvelopeMap))
-                    return request.CriarEnvelopeInputModel;
+            var envFinal = BuildEnvelope(criarEnvelopeMap);
 
-                var criarEnvelopeAsten = new CriarEnvelopeBuilder();
-                criarEnvelopeAsten.ComToken(_astenService.GetToken());
+            var retornoAsten = await _astenService.CriarNovoEnvelope(envFinal);
 
-                var env = new EnvelopeBuilder();
-                env.ComDescricao(criarEnvelopeMap.@params.Envelope.descricao);
-                env.ComRepositorio(criarEnvelopeMap.@params.Envelope.Repositorio);
-                env.ComMensagem(criarEnvelopeMap.@params.Envelope.mensagem);
-                env.ComListaDocumentos(criarEnvelopeMap.@params.Envelope.listaDocumentos);
-                env.ComListaSignatarios(criarEnvelopeMap.@params.Envelope.listaSignatariosEnvelope);
-                env.ComListaObservadores(criarEnvelopeMap.@params.Envelope.listaObservadores);
-                env.ComListaTags(criarEnvelopeMap.@params.Envelope.listaTags);
-                env.ComListaInfoAdicional(criarEnvelopeMap.@params.Envelope.listaInfoAdicional);
-
-                criarEnvelopeAsten.ComEnvelope(env.Build());
-
-                criarEnvelopeAsten.ComGerarTags(criarEnvelopeMap.@params.gerarTags);
-                criarEnvelopeAsten.ComEncaminharImediatamente(criarEnvelopeMap.@params.encaminharImediatamente);
-                criarEnvelopeAsten.ComDetectarCampos(criarEnvelopeMap.@params.detectarCampos);
-                criarEnvelopeAsten.ComVerificarDuplicidadeConteudo(criarEnvelopeMap.@params.verificarDuplicidadeConteudo);
-                criarEnvelopeAsten.ComProcessarImagensEmSegundoPlano(criarEnvelopeMap.@params.processarImagensEmSegundoPlano);
-
-                var envFinal = criarEnvelopeAsten.Build();
-
-                await _astenService.CriarNovoEnvelope(envFinal);
-
+            if (retornoAsten.Errors != null)
+            {
+                foreach (var erro in retornoAsten.Errors)
+                {
+                    Notificar(erro.error);
+                }
+            }
+            else
+            {
                 await _uow.CriarEnvelopeRepository.Adicionar(criarEnvelopeMap);
-
-
-            }
-            catch (AutoMapperMappingException ex)
-            {
-                Console.WriteLine();
             }
 
-            return request.CriarEnvelopeInputModel;
 
+            return retornoAsten;
+        }
+
+        public infrastructure.Services.AstenModels.CriarEnvelope BuildEnvelope(core.Models.CriarEnvelope criarEnvelopeMap)
+        {
+            var criarEnvelopeAsten = new CriarEnvelopeBuilder()
+                .ComToken(_astenService.GetToken());
+
+            var env = new EnvelopeBuilder()
+                .ComDescricao(criarEnvelopeMap.@params.Envelope.descricao)
+                .ComRepositorio(criarEnvelopeMap.@params.Envelope.Repositorio)
+                .ComMensagem(criarEnvelopeMap.@params.Envelope.mensagem)
+                .ComListaDocumentos(criarEnvelopeMap.@params.Envelope.listaDocumentos)
+                .ComListaSignatarios(criarEnvelopeMap.@params.Envelope.listaSignatariosEnvelope)
+                .ComListaObservadores(criarEnvelopeMap.@params.Envelope.listaObservadores)
+                .ComListaTags(criarEnvelopeMap.@params.Envelope.listaTags)
+                .ComListaInfoAdicional(criarEnvelopeMap.@params.Envelope.listaInfoAdicional);
+
+            criarEnvelopeAsten.ComEnvelope(env.Build())
+                             .ComGerarTags(criarEnvelopeMap.@params.gerarTags)
+                             .ComEncaminharImediatamente(criarEnvelopeMap.@params.encaminharImediatamente)
+                             .ComDetectarCampos(criarEnvelopeMap.@params.detectarCampos)
+                             .ComVerificarDuplicidadeConteudo(criarEnvelopeMap.@params.verificarDuplicidadeConteudo)
+                             .ComProcessarImagensEmSegundoPlano(criarEnvelopeMap.@params.processarImagensEmSegundoPlano);
+
+            return criarEnvelopeAsten.Build();
         }
     }
 
